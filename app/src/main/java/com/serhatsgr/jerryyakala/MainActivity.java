@@ -2,59 +2,69 @@ package com.serhatsgr.jerryyakala;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Handler;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView textScore;
-    TextView textTime;
+    TextView textScore, textTime;
     int score = 0;
 
-    ImageView img1, img2, img3, img4, img5, img6, img7, img8, img9;
 
-    ImageView[] img = new ImageView[9];
+    ImageView[] img = new ImageView[12];
 
     Random rnd = new Random();
 
+    private Handler handler1;
+    private Runnable runnable1;
+
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initializeViews();
+        startGame();
 
+    }
+
+    private void initializeViews() {
         textScore = findViewById(R.id.textScore);
         textTime = findViewById(R.id.textTime);
-        img1 = findViewById(R.id.imageView1);
-        img2 = findViewById(R.id.imageView2);
-        img3 = findViewById(R.id.imageView3);
-        img4 = findViewById(R.id.imageView4);
-        img5 = findViewById(R.id.imageView5);
-        img6 = findViewById(R.id.imageView6);
-        img7 = findViewById(R.id.imageView7);
-        img8 = findViewById(R.id.imageView8);
-        img9 = findViewById(R.id.imageView9);
 
-        img[0] = img1;
-        img[1] = img2;
-        img[2] = img3;
-        img[3] = img4;
-        img[4] = img5;
-        img[5] = img6;
-        img[6] = img7;
-        img[7] = img8;
-        img[8] = img9;
+        for (int i = 0; i < img.length; i++) {
+            int resId = getResources().getIdentifier("imageView" + (i + 1), "id", getPackageName());
+            img[i] = findViewById(resId);
+        }
+    }
+
+    public void startGame(){
 
         hideAllImages();
         randomImg();
 
-        new CountDownTimer(10000, 1000) {
+        handler1 = new Handler();
+
+        runnable1 = new Runnable() {
+            @Override
+            public void run() {
+                hideAllImages();
+                randomImg();
+                handler1.postDelayed(this, 1000);
+            }
+        };
+
+        handler1.post(runnable1);
+
+
+        new CountDownTimer(20000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 textTime.setText("Time: " + millisUntilFinished / 1000);
@@ -62,20 +72,20 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                // Timer bitince yapılacaklar
+                handler1.removeCallbacks(runnable1);
+                hideAllImages();
             }
         }.start();
+
     }
 
     public void increaseScore(View view) {
         score++;
         textScore.setText("Score: " + score);
-        hideAllImages();
-        randomImg();
     }
 
     public void randomImg() {
-        int randomNumber = rnd.nextInt(9);
+        int randomNumber = rnd.nextInt(12);
         img[randomNumber].setVisibility(View.VISIBLE);
     }
 
