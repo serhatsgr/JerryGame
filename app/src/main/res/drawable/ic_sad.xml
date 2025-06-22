@@ -1,0 +1,14 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="64dp"
+    android:height="64dp"
+    android:viewportWidth="64"
+    android:viewportHeight="64">
+    <!-- Yüz (sarı daire) -->
+    <path android:fillColor="#FFF176" android:pathData="M32,2a30,30 0 1,0 0,60a30,30 0 1,0 0,-60z"/>
+    <!-- Sol göz -->
+    <path android:fillColor="#333333" android:pathData="M22,28a3,3 0 1,0 6,0a3,3 0 1,0 -6,0z"/>
+    <!-- Sağ göz -->
+    <path android:fillColor="#333333" android:pathData="M36,28a3,3 0 1,0 6,0a3,3 0 1,0 -6,0z"/>
+    <!-- Ağız (üzgün) -->
+    <path android:strokeColor="#333333" android:strokeWidth="2" android:fillColor="@android:color/transparent" android:pathData="M24,44 Q32,38 40,44"/>
+</vector> 
