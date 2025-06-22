@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/housebackground"
-    tools:context=".MainActivity">
+    tools:context=".Level4">
 
     <!-- Skor ve Zaman kutuları -->
     <LinearLayout
@@ -58,6 +58,31 @@
         android:layout_centerInParent="true"
         android:visibility="invisible"
         android:elevation="8dp" />
+
+    <!-- Bonus Jerry görseli -->
+    <ImageView
+        android:id="@+id/imageBonusJerry"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:src="@drawable/bonusjerry"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="180dp"
+        android:visibility="invisible"
+        android:elevation="6dp" />
+
+    <!-- Yakala butonu -->
+    <ImageView
+        android:id="@+id/imageSpike"
+        android:layout_width="88dp"
+        android:layout_height="76dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginBottom="5dp"
+        android:elevation="6dp"
+        android:src="@drawable/spike"
+        android:visibility="invisible" />
 
     <!-- Yakala butonu -->
     <androidx.appcompat.widget.AppCompatButton
