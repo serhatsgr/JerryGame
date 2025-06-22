@@ -44,6 +44,58 @@ git clone https://github.com/kullaniciadi/JerryYakala.git
 
 ---
 
+## 📁 Proje Dizini Yapısı
+
+```
+JerryYakala/
+├── app/
+│   ├── build.gradle
+│   ├── libs/
+│   ├── proguard-rules.pro
+│   └── src/
+│       ├── androidTest/
+│       ├── main/
+│       │   ├── AndroidManifest.xml
+│       │   ├── java/
+│       │   │   └── com/serhatsgr/jerryyakala/
+│       │   │       ├── MainActivity.java
+│       │   │       ├── Level2.java
+│       │   │       ├── Level3.java
+│       │   │       ├── Level4.java
+│       │   │       ├── Level5.java
+│       │   │       └── PauseableCountDownTimer.java
+│       │   └── res/
+│       │       ├── anim/         (bounce.xml ve fade_in.xml silindi)
+│       │       ├── drawable/     (Çoğu özel arkaplan ve icon dosyası silindi)
+│       │       ├── layout/
+│       │       │   ├── activity_main.xml
+│       │       │   ├── activity_level2.xml
+│       │       │   ├── activity_level3.xml
+│       │       │   ├── activity_level4.xml
+│       │       │   └── activity_level5.xml
+│       │       │   (dialog_game_over.xml ve dialog_level_success.xml silindi)
+│       │       ├── mipmap-hdpi/  (ve diğer mipmap klasörleri)
+│       │       ├── raw/
+│       │       │   ├── clickjerry.mp3
+│       │       │   └── fail.mp3
+│       │       ├── values/
+│       │       │   ├── colors.xml
+│       │       │   ├── strings.xml
+│       │       │   └── themes.xml
+│       │       └── xml/
+│       └── test/
+├── build.gradle
+├── gradle/
+│   └── wrapper/
+├── gradle.properties
+├── gradlew
+├── gradlew.bat
+├── README.md
+└── settings.gradle
+```
+
+---
+
 ## 📱 Kullanım Talimatları
 
 1. Uygulamayı başlatın.
